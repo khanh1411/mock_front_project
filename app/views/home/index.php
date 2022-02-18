@@ -13,7 +13,7 @@
                     <div class="header_top">
                         <div class="header_top_left">
                             <ul class="top_nav">
-                                <li><a href="#">MOCK PROJECT </a></li>
+                                <li><a href="#">NEWS</a></li>
                                 <li id="timePage"><?php echo date("l d/m/Y"); ?></li>
                             </ul>
                         </div>
