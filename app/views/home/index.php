@@ -17,11 +17,11 @@
                                 <li id="timePage"><?php echo date("l d/m/Y"); ?></li>
                             </ul>
                         </div>
-                        <!-- <div class="header_top_right">
+                        <div class="header_top_right">
                             <p><input id="searchPage" type="text" placeholder="Search"></p>
-                            <button id="btnLogin">Login</button>
-                           
-                        </div> -->
+                            <input type="submit" id="searchClick" value="Search" onclick="displayModalSearch()">
+                        </div>
+                        <!-- <button id="btnLogin">Login</button> -->
                         <hr>
                     </div>
                 </div>
@@ -166,8 +166,8 @@
                         </div>
 
 
-                         <!-- modal world navbar -->
-                         <li id="worldNavbar"></li>
+                        <!-- modal world navbar -->
+                        <li id="worldNavbar"></li>
                         <div class="modalWorldMain">
                             <div class="modal-contentWorld-main">
                                 <span class="closeWorldMain">&times;</span>
@@ -187,6 +187,45 @@
                                             <div class="modal-content-worldDetail ">
                                                 <span class="closeWorldDetail">&times;</span>
                                                 <div id="singleWorldDetail">
+                                                    <!-- <div><h3>tieu de</h3></div>
+                                                        <div>noi dung</div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- modal search -->
+                        <div class="modalSearch" id="modalTheSearch">
+                            <div class="modal-contentSearch">
+                                <span class="closeSearch">&times;</span>
+
+                                <div class="titleDetail" id="titleSearch">
+
+                                </div>
+                                <div>
+                                    <article class="article-highlight">
+                                        <article class="article-item" id="allFindPost">
+                                            <!-- <div class="article-thumb" id="">
+                                                <a>
+                                                    <img src="images/bongda.jpg" width="300" height="200" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="article-content" >
+                                                <h3 id="">
+                                                    tieu de bai viet cuoi cung
+                                                </h3>
+                                                <div>Lorem Ipsum is simply dummy text of the</div>
+                                            </div> -->
+                                        </article>
+
+                                        <div class="modalFindModal" id="postFindModal">
+                                            <div class="modal-content-findmodal">
+                                                <span class="closeFindModal">&times;</span>
+                                                <div id="singleFindPost">
                                                     <!-- <div><h3>tieu de</h3></div>
                                                         <div>noi dung</div> -->
                                                 </div>

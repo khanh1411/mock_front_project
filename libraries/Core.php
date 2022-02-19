@@ -45,7 +45,7 @@ class Core
     {
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/'); //bỏ ký tự / cuối url
-            $url = filter_var($url, FILTER_SANITIZE_URL); // loại bỏ các ký tự ko hợp lệ khỏi 1 chuỗi
+            // $url = filter_var($url, FILTER_SANITIZE_URL); // loại bỏ các ký tự ko hợp lệ khỏi 1 chuỗi
             $url = explode('/', $url);  // convert string to arr
             return $url;
         }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "../app/controllers/Base.php";
 require_once "../app/repositories/Post/PostRepository.php";
 
@@ -23,7 +23,7 @@ class Post extends Base
     {
         $res = $this->post->getlastPost();
         return $this->response($res);
-    }   
+    }
 
     // lấy những bài viết gần nhất
     public function newestPost()
@@ -45,7 +45,7 @@ class Post extends Base
         $res = $this->post->getNewestPostOfCategory($id);
         return $this->response($res);
     }
-    
+
     // lấy ảnh ở bài viết
     public function getImagePost($id)
     {
@@ -53,7 +53,7 @@ class Post extends Base
         return $this->response($res);
     }
 
-    
+
 
     // lấy tất cả bài viết của từng thể loại trong trang detail
     public function allPostDetailCategory($id)
@@ -66,6 +66,13 @@ class Post extends Base
     public function singlePost($id)
     {
         $res = $this->post->getPost($id);
+        return $this->response($res);
+    }
+
+    // tìm kiếm bài biết
+    public function findPost($keyword)
+    {
+        $res = $this->post->searchPost($keyword);
         return $this->response($res);
     }
 }

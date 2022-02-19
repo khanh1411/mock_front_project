@@ -6,6 +6,9 @@ let sportCategoryApi = 'http://localhost/mock/category/getSingleCategory/4';
 let entertainmentCategoryApi = 'http://localhost/mock/category/getSingleCategory/3';
 let worldCategoryApi = 'http://localhost/mock/category/getSingleCategory/1';
 
+// api tim kiem
+let findPost = 'http://localhost/mock/post/findPost/';
+
 // api bài viết cuối cùng
 let lastPostApi = 'http://localhost/mock/post/lastPost';
 
@@ -1306,5 +1309,123 @@ function displayWorldDetail(id) {
                 `
             })
             singleWorldDetail.innerHTML = res.join('');
+        })
+}
+
+// tim kiem
+function findThePost(callback) {
+    let something = 'messi'
+    let url = findPost + something;
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(callback)
+}
+// function renderSearch(data){
+//     let searchClick = document.querySelector("searchClick");
+//     let res = data.map(function(el){
+//         return `
+//             <h4>${el.title}</h4>
+//         `
+//     });
+//     searchClick.innerHTML = res.join('');
+// }
+
+function displayModalSearch() {
+    let node = document.getElementById('modalTheSearch');
+    node.style.display = 'block';
+
+    let modal = $('.modalSearch');
+    let span = $('.closeSearch');
+    span.click(function () {
+        modal.hide();
+    });
+
+    $(window).on('click', function (e) {
+        if ($(e.target).is('.modalSearch')) {
+            modal.hide();
+        }
+    });
+
+    // call data
+
+    // let formData = {
+    //     name: name
+    // }
+    findData();
+}
+function findData() {
+    let name = document.querySelector('input[name="searchName"]').value;
+    let url = findPost + name;
+
+    // let options = {
+    //     method: 'POST',
+    //     header: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(name),
+    // };
+    fetch(url)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            let allFindPost = document.querySelector('#allFindPost');
+            let res = data.map(function (el) {
+                return `
+                    <div class="itemNewsDetail" id=${el.id}>
+                        <div class="article-thumb" id="">
+                            <a>
+                                <img src="http://localhost/mock_admin/admin/images/${el.image_url}" width="300" height="200" alt="">
+                            </a>
+                        </div>
+                        <div class="article-content" >
+                            <a onclick="displayDetailSearch(${el.id})">
+                                <h3>${el.title}</h3>
+                                <div>${el.content.substring(0, 100)}...</div>
+                            </a>
+                        </div>
+                    </div>
+                `
+            })
+            allFindPost.innerHTML = res.join('');
+        })
+}
+
+function displayDetailSearch(id) {
+    let node = document.getElementById('postFindModal');
+    node.style.display = 'block';
+
+    let modal = $('.modalFindModal');
+    let span = $('.closeFindModal');
+    span.click(function () {
+        modal.hide();
+    });
+
+    $(window).on('click', function (e) {
+        if ($(e.target).is('.modalFindModal')) {
+            modal.hide();
+        }
+    });
+
+    // call api
+    let url = singlePostApi + id;
+    fetch(url)
+        .then(function (response) {
+            // console.log(response.json())
+            return response.json();
+        })
+        .then(function (data) {
+            let singleFindPost = document.querySelector('#singleFindPost');
+            let res = data.map(function (el) {
+                return `
+                    <div>
+                        <h3>${el.title}</h3>
+                    </div>
+                    <div>${el.content}</div>
+                `
+            })
+            singleFindPost.innerHTML = res.join('');
         })
 }
